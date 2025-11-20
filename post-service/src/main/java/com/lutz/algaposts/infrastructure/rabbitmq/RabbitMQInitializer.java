@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
-@Configuration
 @RequiredArgsConstructor
+@Configuration
 public class RabbitMQInitializer {
 	private final RabbitAdmin rabbitAdmin;
 
