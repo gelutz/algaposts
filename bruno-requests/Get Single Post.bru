@@ -1,0 +1,16 @@
+meta {
+  name: Get Single Post
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/api/posts/f7d54a2c-8aa8-4985-9326-156f07dde052
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

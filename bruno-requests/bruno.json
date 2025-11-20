@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "AlgaPosts",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
