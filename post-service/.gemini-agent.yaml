@@ -1,0 +1,36 @@
+# Gemini Code Generation and Modification Rules
+# version: 0.1
+#
+# This file provides a set of rules and guidelines for the Gemini CLI to follow
+# when generating or modifying code in this project.
+#
+# By following these rules, we can ensure that the codebase remains consistent,
+# readable, and maintainable.
+#
+# For more information on how to configure this file, please refer to the
+# Gemini CLI documentation.
+
+rules:
+  - id: "PACKAGE_NAMING_CONVENTION"
+    description: "Packages should be all lowercase, following Java conventions."
+    recommendation: "When creating new packages, use lowercase letters only. For example, `com.lutz.algaposts.api.controller` is correct, while `com.lutz.algaposts.Controller` is not."
+    severity: "error"
+    match:
+      file: "src/main/java/**/*.java"
+      content: "package .*[A-Z].*."
+
+  - id: "USE_LOMBOK_ANNOTATIONS"
+    description: "Prefer Lombok annotations over explicit getters, setters, and other boilerplate code."
+    recommendation: "When creating new entities or data transfer objects, use Lombok annotations like `@Getter`, `@Setter`, `@EqualsAndHashCode`, and `@ToString` to reduce boilerplate code. Avoid writing these methods manually."
+    severity: "warning"
+    match:
+      file: "src/main/java/com/lutz/algaposts/domain/model/*.java"
+      content: "public (get|set|equals|hashCode|toString)"
+
+  - id: "USE_UUID_FOR_ENTITY_IDS"
+    description: "Use UUIDs for entity IDs instead of Longs."
+    recommendation: "When creating new entities, use `java.util.UUID` as the type for the primary key. Use the `@GeneratedValue(strategy = GenerationType.UUID)` annotation to automatically generate the UUIDs."
+    severity: "error"
+    match:
+      file: "src/main/java/com/lutz/algaposts/domain/model/*.java"
+      content: "@Id\s*private Long id;"
