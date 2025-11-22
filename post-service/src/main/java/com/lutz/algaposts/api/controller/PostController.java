@@ -41,6 +41,7 @@ public class PostController {
 
     @GetMapping("/{postId}")
     public ResponseEntity<PostOutput> getPostById(@PathVariable UUID postId) {
+        log.info("Trying to fetch post {}", postId);
         var post = postService.findById(postId);
         if (post == null) {
             return ResponseEntity.notFound().build();

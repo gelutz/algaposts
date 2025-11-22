@@ -31,21 +31,18 @@ public class RabbitMQConfig {
 		return new RabbitAdmin(connectionFactory);
 	}
 
-	@Bean
 	public Queue postToProcessDeadLetterQueue() {
 		return QueueBuilder
 				.durable(POST_TO_PROCESS_DLQ)
 				.build();
 	}
 
-	@Bean
 	public Queue processedPostDeadLetterQueue() {
 		return QueueBuilder
 				.durable(PROCESSED_POST_DLQ)
 				.build();
 	}
 
-	@Bean
 	public Queue postToProcessQueue() {
 		Map<String, Object> arguments = new HashMap<>();
 		arguments.put("x-dead-letter-exchange", "");
@@ -57,7 +54,6 @@ public class RabbitMQConfig {
 				.build();
 	}
 
-	@Bean
 	public Queue processedPostQueue() {
 		Map<String, Object> arguments = new HashMap<>();
 		arguments.put("x-dead-letter-exchange", "");
@@ -69,12 +65,10 @@ public class RabbitMQConfig {
 				.build();
 	}
 
-	@Bean
 	public DirectExchange directExchange() {
 		return ExchangeBuilder.directExchange(DIRECT_EXCHANGE_NAME).build();
 	}
 
-	@Bean
 	public Binding bindPostToProcess() {
 		return BindingBuilder
 				.bind(postToProcessQueue())
@@ -82,7 +76,6 @@ public class RabbitMQConfig {
 				.with(POST_TO_PROCESS_ROUTING_KEY);
 	}
 
-	@Bean
 	public Binding bindProcessedPost() {
 		return BindingBuilder
 				.bind(processedPostQueue())

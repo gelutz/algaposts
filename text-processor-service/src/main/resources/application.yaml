@@ -1,3 +1,17 @@
+server.port: 8081
 spring:
-  application:
-    name: algaposts
+  application.name: algaposts
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+      simple:
+        prefetch: 4
+        retry:
+          enabled: true
+          initial-interval: 10s
+          max-interval: 30s
+          multiplier: 2
+#          max-attempts: 3 its the default

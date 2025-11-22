@@ -1,4 +1,4 @@
-package com.lutz.algaposts.api.listeners;
+package com.lutz.algaposts.api.listener;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;

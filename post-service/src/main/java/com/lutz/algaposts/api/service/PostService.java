@@ -20,7 +20,9 @@ import com.lutz.algaposts.infrastructure.rabbitmq.RabbitMQConfig;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -38,6 +40,7 @@ public class PostService {
                 .body(input.body())
                 .build();
 
+        log.info("Post {} saved. Sending to queue to calculate cost...", post.getId());
         this.sendPostToProcessor(new PostProcessorInput(post.getId(), post.getBody()));
 
         return postRepository.save(Objects.requireNonNull(post));
