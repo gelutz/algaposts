@@ -5,15 +5,16 @@ meta {
 }
 
 post {
-  url: http://localhost:8080/api/comments
+  url: http://localhost:8080/api/posts
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "text": "Texto do Lutz",
-    "author": "Lutz, obviamente"
+    "title": "Textículos",
+    "body": "Piada com o fato de que a palavra que significa textos bem pequenos (textículos) parece testículos.",
+    "author": "Eu mesmo"
   }
 }
 

@@ -1,4 +1,4 @@
-package com.lutz.algaposts.api.controller.dto;
+package com.lutz.algaposts.api.dto;
 
 public record PostInput(String title, String body, String author) {
 }
